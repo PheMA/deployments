@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "phex-dev.fullname" . }}
+  name: {{ include "phema-phex.fullname" . }}
   labels:
-{{ include "phex-dev.labels" . | indent 4 }}
+{{ include "phema-phex.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "phex-dev.name" . }}
+      app.kubernetes.io/name: {{ include "phema-phex.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "phex-dev.name" . }}
+        app.kubernetes.io/name: {{ include "phema-phex.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ template "phex-dev.serviceAccountName" . }}
+      serviceAccountName: {{ template "phema-phex.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

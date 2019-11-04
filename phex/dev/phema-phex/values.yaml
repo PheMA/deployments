@@ -1,4 +1,4 @@
-# Default values for phex-dev.
+# Default values for phema-phex.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -32,8 +32,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 80
+  type: NodePort
+  port: 443
 
 ingress:
   enabled: false
