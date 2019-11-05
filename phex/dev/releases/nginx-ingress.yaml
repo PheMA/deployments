@@ -1,22 +1,10 @@
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
 metadata:
-  name: ingress-nginx
-  namespace: ingress-nginx
+  name: nginx-ingress
+  namespace: nginx-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
+    flux.weave.works/automated: "true"
 spec:
   releaseName: nginx-ingress
-  chart:
-    repository: https://kubernetes-charts.storage.googleapis.com/
-    name: nginx-ingress
-    version: 0.31.0
-  rules:
-    - host: phex.psbrandt.io
-      http:
-        paths:
-          - backend:
-              serviceName: phex
-              servicePort: 8083
