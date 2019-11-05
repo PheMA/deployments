@@ -8,3 +8,6 @@ metadata:
     flux.weave.works/automated: "true"
 spec:
   releaseName: nginx-ingress
+  values:
+    controller.service.type: NodePort
+    controller.service.nodePorts.http: 443
