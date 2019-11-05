@@ -6,6 +6,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: 'true'
 spec:
   rules:
     - host: phex.phema.science
@@ -22,3 +24,7 @@ spec:
             backend:
               serviceName: phema-phex
               servicePort: 8083
+  tls:
+    - secretName: letsencrypt-phex-dev
+      hosts:
+        - phex.phema.science
