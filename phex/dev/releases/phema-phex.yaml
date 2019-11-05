@@ -9,6 +9,6 @@ metadata:
 spec:
   releaseName: phema-phex
   chart:
-    git: ssh://git@github.com/phema/deployments
+    git: git@github.com:phema/deployments
     ref: master
     path: phex/dev/charts/phema-phex
