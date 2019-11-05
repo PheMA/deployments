@@ -8,6 +8,13 @@ metadata:
     flux.weave.works/automated: "true"
 spec:
   releaseName: nginx-ingress
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: nginx-ingress
+    version: 1.24.5
   values:
-    controller.service.type: NodePort
-    controller.service.nodePorts.http: 443
+    controller:
+      hostNetwork: true
+      service:
+        type: NodePort
+        enableHttps: true

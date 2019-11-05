@@ -12,3 +12,4 @@ spec:
     git: git@github.com:phema/deployments
     ref: master
     path: phex/dev/charts/phema-phex
+    version: 0.1.1

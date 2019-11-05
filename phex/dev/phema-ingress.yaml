@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: phema-ingress
+  namespace: phema
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: phex.phema.science
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: phema-phex
+              servicePort: 8083
+    - host: localhost
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: phema-phex
+              servicePort: 8083
