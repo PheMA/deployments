@@ -13,11 +13,6 @@ spec:
     repository: https://kubernetes-charts.storage.googleapis.com/
     name: nginx-ingress
     version: 0.31.0
-  values:
-    controller:
-      ingressClass: nginx
-      publishService:
-        enabled: true
   rules:
     - host: phex.psbrandt.io
       http:
