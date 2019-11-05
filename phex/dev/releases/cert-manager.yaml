@@ -14,5 +14,5 @@ spec:
     version: 0.11.0
   values:
     ingressShim:
-      defaultIssuerName: letsencrypt-prod
+      defaultIssuerName: letsencrypt-phex-dev
       defaultIssuerKind: ClusterIssuer
