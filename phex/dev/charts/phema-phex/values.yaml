@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: stable
+  repository: phema-docker-docker.bintray.io/phema-phex
+  tag: 0.0.4
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []

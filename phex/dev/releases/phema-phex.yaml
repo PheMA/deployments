@@ -1,17 +1,14 @@
-apiVersion: helm.fluxcd.io/v1
+---
+apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
-  name: rabbit
-  namespace: default
+  name: phema-phex
+  namespace: phema
+  annotations:
+    flux.weave.works/automated: "true"
 spec:
-  releaseName: rabbitmq
-  targetNamespace: mq
-  timeout: 300
-  resetValues: false
-  forceUpgrade: false
+  releaseName: phema-phex
   chart:
-    repository: https://kubernetes-charts.storage.googleapis.com/
-    name: rabbitmq
-    version: 3.3.6
-  values:
-    replicas: 1
+    git: ssh://git@github.com/phema/deployments
+    ref: master
+    path: phex/dev/charts/phema-phex
