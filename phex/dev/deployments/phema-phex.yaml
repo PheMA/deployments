@@ -1,0 +1,20 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: phema-phex
+  namespace: phema
+spec:
+  selector:
+    matchLabels:
+      app: phex
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: phex
+    spec:
+      containers:
+        - name: phex
+          image: phema-docker-docker.bintray.io/phema-phex:0.0.4
+          ports:
+            - containerPort: 8083
