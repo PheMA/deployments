@@ -1,0 +1,26 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: phema-phex
+  namespace: phema
+  annotations:
+    fluxcd.io/automated: "false"
+    fluxcd.io/tag.chart-image: semver:~4.0
+spec:
+  releaseName: phema-phex
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: mongodb
+    version: 4.9.0
+  values:
+    image:
+      repository: bitnami/mongodb
+      tag: 4.0.3
+    usePassword: false
+    persistence:
+      enabled: false
+    securityContext:
+      enabled: true
+      fsGroup: 0
+      runAsUser: 0
