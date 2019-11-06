@@ -13,3 +13,6 @@ spec:
     ref: master
     path: phex/dev/charts/phema-phex
     version: 0.1.1
+  values:
+    image:
+      tag: 0.0.7
