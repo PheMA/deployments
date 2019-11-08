@@ -30,7 +30,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
+            - name: ui
               containerPort: 1234
               protocol: TCP
             - name: api
@@ -39,11 +39,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: http
+              port: ui
           readinessProbe:
             httpGet:
               path: /
-              port: http
+              port: ui
           volumeMounts:
             - name: phekb-data
               mountPath: {{ .Values.volumeMounts.phekb.mountPath }}

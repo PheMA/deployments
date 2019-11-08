@@ -8,13 +8,13 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.apiPort }}
-      targetPort: http
+      targetPort: api
       protocol: TCP
-      name: http
+      name: api
     - port: {{ .Values.service.uiPort }}
-      targetPort: http
+      targetPort: ui
       protocol: TCP
-      name: http
+      name: ui
   selector:
     app.kubernetes.io/name: {{ include "phema-phekb-export-viewer.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
