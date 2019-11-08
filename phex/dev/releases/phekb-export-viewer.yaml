@@ -1,0 +1,22 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: phema-phekb-export-viewer
+  namespace: phema
+  annotations:
+    flux.weave.works/automated: "true"
+spec:
+  releaseName: phema-phekb-export-viewer
+  chart:
+    git: git@github.com:phema/deployments
+    ref: master
+    path: phex/dev/charts/phema-phekb-export-viewer
+    version: 0.0.2
+  volumeMounts:
+    - mountPath: "/opt/phema/phekb/data"
+      name: storage
+  volumes:
+    - name: storage
+      persistentVolumeClaim:
+        claimName: hekb-volumne-claim
