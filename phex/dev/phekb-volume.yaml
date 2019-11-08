@@ -4,9 +4,19 @@ metadata:
   name: phekb-data
   namespace: phema
 spec:
+  capacity:
+    storage: 1Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   storageClassName: local-storage
   local:
     path: /opt/phema/phekb/data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - phema-executor
