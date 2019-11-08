@@ -44,9 +44,6 @@ spec:
             httpGet:
               path: /
               port: ui
-          volumeMounts:
-            - name: phekb-data
-              mountPath: {{ .Values.volumeMounts.phekb.mountPath }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

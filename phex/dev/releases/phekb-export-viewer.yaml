@@ -15,8 +15,8 @@ spec:
     version: 0.0.2
   volumeMounts:
     - mountPath: "/opt/phema/phekb/data"
-      name: storage
+      name: phekb-data
   volumes:
-    - name: storage
+    - name: phekb-data
       persistentVolumeClaim:
         claimName: hekb-volumne-claim
