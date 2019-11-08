@@ -33,7 +33,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  apiPort: 300
+  apiPort: 3000
   uiPort: 1234
 
 

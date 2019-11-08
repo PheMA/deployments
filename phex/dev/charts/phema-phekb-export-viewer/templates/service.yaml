@@ -8,11 +8,11 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.apiPort }}
-      targetPort: api
+      targetPort: {{ .Values.service.apiPort }}
       protocol: TCP
       name: api
     - port: {{ .Values.service.uiPort }}
-      targetPort: ui
+      targetPort: {{ .Values.service.uiPort }}
       protocol: TCP
       name: ui
   selector:
