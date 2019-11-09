@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: phekb-ingress
+  namespace: phema
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-phex-dev
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: phex-basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: "phema-phex-realm"
+spec:
+  tls:
+    - secretName: phekb-dev-cert
+      hosts:
+        - phekb.phema.science
+  rules:
+    - host: phekb.phema.science
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: phema-phekb-export-viewer
+              servicePort: 3000
