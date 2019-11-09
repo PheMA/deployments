@@ -30,20 +30,17 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: ui
-              containerPort: 1234
-              protocol: TCP
-            - name: api
+            - name: http
               containerPort: 3000
               protocol: TCP
-          # livenessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: ui
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: ui
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
