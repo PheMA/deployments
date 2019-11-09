@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: phema-docker-docker.bintray.io/phema-phekb-export-viewer
-  tag: 0.0.2
+  tag: 0.0.3
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []

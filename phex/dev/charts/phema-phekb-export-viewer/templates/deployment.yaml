@@ -36,14 +36,14 @@ spec:
             - name: api
               containerPort: 3000
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: ui
-          readinessProbe:
-            httpGet:
-              path: /
-              port: ui
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: ui
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: ui
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
