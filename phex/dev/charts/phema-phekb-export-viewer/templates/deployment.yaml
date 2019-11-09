@@ -43,6 +43,13 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: phekb-data
+              mountPath: "/opt/phema/phekb/data"
+      volumes:
+        - name: phekb-data
+          hostPath:
+            path: /opt/phema/phekb/data
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
