@@ -15,4 +15,4 @@ spec:
     version: 0.1.1
   values:
     image:
-      tag: 0.2.7
+      tag: 0.2.8
